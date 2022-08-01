@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MimeTypeShareTester"
+             x:Class="MimeTypeShareTester.MainPage"
+             x:DataType="local:MainViewModel">
+
+    <StackLayout
+        Margin="20"
+        VerticalOptions="StartAndExpand">
+        
+        <Label
+            FontSize="24"
+            Text="MIME-Type Sharing Tester" />
+        
+        
+        <!-- FILE PICKER -->
+        <Grid
+            x:Name="FilePicker"
+            Padding="24"
+            ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="70" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- ICON -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="📄"
+                FontSize="24"
+                VerticalOptions="Center" />
+
+            <!-- FILE NAME -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{ Binding SelectedFileDisplayName }"
+                VerticalOptions="Center" />
+
+            <!-- PICK BUTTON -->
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Pick"
+                TextColor="Orange"
+                BackgroundColor="Transparent"
+                VerticalOptions="Center"
+                Padding="0"
+                Command="{ Binding PickFileCommand }" />
+        </Grid>
+        
+        <!-- MIME TYPE TO USE -->
+        <Entry
+            Margin="0,20"
+            Placeholder="MIME type e.g. application/zip"
+            Text="{ Binding MimeType }"/>
+        
+        <!-- SHARE BUTTON -->
+        <Button
+            Margin="0,20"
+            Text="SHARE"
+            FontSize="24"
+            Command="{ Binding ShareFileCommand }"/>
+        
+    </StackLayout>
+
+</ContentPage>
